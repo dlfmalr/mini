@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+<html lang="ko" layout:decorate="~{layout}">
+<body layout:fragment="content">
 <div class="bg-yellow-400"
      th:with="notebookList=${mainDataDto.notebookList},
         noteList=${mainDataDto.noteList},
@@ -53,6 +47,8 @@
             </form>
             <!-- You can open the modal using ID.showModal() method -->
             <button class="btn" onclick="my_modal_3.showModal()">노트북 이름 수정</button>
+            <a href="/signup" class="btn">회원가입</a>
+
             <dialog id="my_modal_3" class="modal">
                 <div class="modal-box">
                     <form method="dialog">
