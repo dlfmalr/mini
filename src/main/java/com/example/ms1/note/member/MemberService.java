@@ -1,6 +1,7 @@
 package com.example.ms1.note.member;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -10,11 +11,12 @@ import java.time.LocalDateTime;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public void save(String loginId, String password, String nickname, String email) {
         Member member = new Member();
         member.setLoginId(loginId);
-        member.setPassword(password);
+        member.setPassword(passwordEncoder.encode(password));
         member.setNickname(nickname);
         member.setEmail(email);
         member.setCreateDate(LocalDateTime.now());

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout}">
 <div layout:fragment="content">
-<form action="/signup" th:object="${memberForm}" class="flex flex-col gap-7" method="post">
+<form th:action="@{/signup}" th:object="${memberForm}" class="flex flex-col gap-7" method="post">
     <input type="text" class="input" name="loginId" th:field="*{loginId}" placeholder="아이디">
     <p th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></p>
     <input type="password" class="input" name="password" th:field="*{password}" placeholder="비밀번호">
